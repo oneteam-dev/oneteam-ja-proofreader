@@ -1,0 +1,32 @@
+{
+  "rules": {
+    "@textlint-ja/textlint-rule-no-insert-dropping-sa": true,
+    "ja-no-abusage": true,
+    "ja-no-mixed-period": true,
+    "ja-no-redundant-expression": true,
+    "ja-unnatural-alphabet": true,
+    "max-ten": {
+      "max": 4
+    },
+    "no-double-negative-ja": true,
+    "no-doubled-conjunction": true,
+    "no-doubled-conjunctive-particle-ga": true,
+    "no-doubled-joshi": true,
+    "no-dropping-the-ra": true,
+    "no-hankaku-kana": true,
+    "no-mix-dearu-desumasu": {
+      "preferInHeader": "",
+       "preferInBody": "ですます",
+       "preferInList": "である",
+       "strict": false
+    },
+    "no-mixed-zenkaku-and-hankaku-alphabet": true,
+    "web-plus-db": true,
+    "preset-ja-spacing": {
+      "ja-space-between-half-and-full-width": {
+        "space": "always",
+        "exceptPunctuation": false
+      }
+    }
+  }
+}
