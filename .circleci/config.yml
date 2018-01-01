@@ -1,0 +1,66 @@
+version: 2
+jobs:
+  build-job:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:8.9.3
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Cache - dependencies
+          keys:
+            - v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run:
+          name: System information
+          command: |
+            echo "Node.js $(node -v)"
+            echo "npm $(npm -v)"
+            echo "Yarn v$(yarn --version)"
+      - run:
+          name: Install dependencies
+          command: yarn
+      - run:
+          name: Test
+          command: |
+            npm test
+      - save_cache:
+          paths:
+            - ~/workspace/node_modules
+            - ~/.cache/yarn/
+          key: v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+
+  deploy-job:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:8.9.3
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restoring Cache - dependencies
+          keys:
+            - v1-dependencies-{{ arch }}-{{ .Branch }}-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run:
+          name: Run setup script
+          command: bash .circleci/setup-heroku.sh
+      - add_ssh_keys:
+          fingerprints:
+            - "78:8b:6c:7e:03:f9:25:ef:7f:8a:42:d8:1e:10:96:15"
+      - run:
+          name: Deploy to Heroku
+          command: |
+            git push heroku master -f
+            heroku restart
+
+workflows:
+  version: 2
+  build-deploy:
+    jobs:
+      - build-job
+      - deploy-job:
+          requires:
+            - build-job
+          filters:
+            branches:
+              only: master

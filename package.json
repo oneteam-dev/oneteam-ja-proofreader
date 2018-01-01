@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "node server",
     "build": "webpack",
-    "heroku-prebuild": "NODE_ENV=production npm run build",
+    "heroku-postbuild": "NODE_ENV=production npm run build",
     "test": "echo \"Error: no test specified\""
   },
   "repository": {
