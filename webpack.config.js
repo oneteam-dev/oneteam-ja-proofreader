@@ -12,6 +12,7 @@ const { NODE_ENV = 'development' } = process.env
 const prod = NODE_ENV === 'production'
 
 const srcPath = path.resolve(__dirname, 'src')
+const srcImagesPath = path.resolve(srcPath, 'images')
 const buildPath = path.resolve(__dirname, 'public')
 const nodeModulesPath = path.resolve(__dirname, 'node_modules')
 
@@ -23,6 +24,7 @@ const plugins = [
   }),
   new HtmlPlugin({
     template: path.resolve(__dirname, 'template', 'index.pug'),
+    favicon:  path.resolve(srcImagesPath, 'favicon.ico'),
   }),
   new CaseSensitivePathsPlugin(),
 ]
