@@ -31,3 +31,10 @@
   justify-content: center;
   font-size: 64px;
 }
+
+.spinner {
+  top: auto;
+  left: auto;
+  position: absolute;
+  transform: translate(50%, -50%);
+}

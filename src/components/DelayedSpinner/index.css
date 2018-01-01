@@ -1,0 +1,3 @@
+.spinner :global(.react-spinner_bar) {
+  background-color: #888;
+}
