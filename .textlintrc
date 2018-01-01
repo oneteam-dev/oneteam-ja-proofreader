@@ -16,9 +16,9 @@
     "no-hankaku-kana": true,
     "no-mix-dearu-desumasu": {
       "preferInHeader": "",
-       "preferInBody": "ですます",
-       "preferInList": "である",
-       "strict": false
+      "preferInBody": "ですます",
+      "preferInList": "である",
+      "strict": false
     },
     "no-mixed-zenkaku-and-hankaku-alphabet": true,
     "web-plus-db": true,
