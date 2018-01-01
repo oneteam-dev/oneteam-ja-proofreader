@@ -11,7 +11,7 @@ dotenv.config()
 const { NODE_ENV = 'development' } = process.env
 const prod = NODE_ENV === 'production'
 
-const srcPath = path.resolve(__dirname, 'client')
+const srcPath = path.resolve(__dirname, 'src')
 const buildPath = path.resolve(__dirname, 'public')
 const nodeModulesPath = path.resolve(__dirname, 'node_modules')
 
