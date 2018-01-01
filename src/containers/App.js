@@ -47,7 +47,7 @@ export default class App extends Component {
                 onChange={this.handleValueChange}
                 innerRef={c => this.input = c}
                 className={s.textarea}
-                placeholder='校正したい文章をここへ入力してください'
+                placeholder='校正したい文章を入力してください'
               />
             </Col>
             <Col xs='1' className={s.secCenter}>
