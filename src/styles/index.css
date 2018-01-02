@@ -3,4 +3,5 @@ body,
 div[id=app-root],
 div[id=app-root] > div[class=app] {
   height: 100%;
+  color: #333;
 }

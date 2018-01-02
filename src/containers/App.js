@@ -1,13 +1,22 @@
 import React, { Component } from 'react'
-import { Alert, Button, Input, Container, Row, Col } from 'reactstrap'
+import { Alert, Button, Container, Row, Col } from 'reactstrap'
 import Ansi from 'components/Ansi'
 import Header from 'components/Header'
 import Footer from 'components/Footer'
+import Textarea from 'components/Textarea'
 import DelayedSpinner from 'components/DelayedSpinner'
 import s from './App.css'
 
 export default class App extends Component {
-  state = { result: null, error: null, value: '', requesting: false }
+  state = {
+    result: null,
+    error: null,
+    requesting: false,
+    focusOffset: 0,
+    charCount: 0,
+    lineCount: 0,
+    focusLineNumber: 1,
+  }
   async lint(text) {
     const res = await fetch('/lint', {
       method: 'POST',
@@ -25,31 +34,33 @@ export default class App extends Component {
   }
   handleClick = () => {
     this.setState({ requesting: true })
-    this.lint(this.input.value)
-  }
-  handleValueChange = e => {
-    this.setState({ value: e.target.value })
+    this.lint(this.textarea.value)
   }
   componentDidMount() {
-    if (this.input) {
-      this.input.focus()
+    if (this.textarea) {
+      this.textarea.focus()
     }
+  }
+  handleValueChange = () => {
+    const { focusOffset, charCount, lineCount, currentLineNumber } = this.textarea
+    this.setState({ focusOffset, charCount, lineCount, focusLineNumber: currentLineNumber })
   }
   render() {
     return (
       <div className='app'>
         <Header />
         {this.renderError()}
+        <Container fluid className={s.meta}>
+          <Row><Col xa='12'>{this.renderMetadata()}</Col></Row>
+        </Container>
         <Container fluid className={s.container}>
           <Row noGutters className={s.row}>
             <Col xs='6' className={s.secLeft}>
-              <Input
-                type='textarea'
-                value={this.state.value}
-                onChange={this.handleValueChange}
-                innerRef={c => this.input = c}
-                className={s.textarea}
+              <Textarea
+                ref={c => this.textarea = c}
+                containerClassName={s.textarea}
                 placeholder='校正したい文章を入力してください'
+                onChange={this.handleValueChange}
               />
             </Col>
             <Col xs='1' className={s.secCenter}>
@@ -60,6 +71,14 @@ export default class App extends Component {
           </Row>
         </Container>
         <Footer />
+      </div>
+    )
+  }
+  renderMetadata() {
+    const { focusOffset, charCount, lineCount, focusLineNumber } = this.state
+    return (
+      <div>{focusLineNumber}行：{focusOffset}字目{'　'}
+        総数： {charCount}字 , {lineCount}行
       </div>
     )
   }
