@@ -92,6 +92,7 @@
     "textlint-rule-no-mix-dearu-desumasu": "^3.0.3",
     "textlint-rule-no-mixed-zenkaku-and-hankaku-alphabet": "^1.0.1",
     "textlint-rule-preset-ja-spacing": "^2.0.1",
+    "textlint-rule-prh": "^5.0.1",
     "textlint-rule-web-plus-db": "^1.1.5",
     "webpack": "^3.10.0",
     "webpack-common-shake": "^1.5.3"
