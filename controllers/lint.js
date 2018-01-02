@@ -11,7 +11,13 @@ const lint = async (ctx, next) => {
     ctx.throw(400, '`text` request body must be required.')
   } else {
     const result = await textlint.executeOnText(ctx.request.body.text)
-    ctx.body = { result: formatter(result) }
+    // TODO:
+    const formatted = formatter(result)
+      .split('\n')
+      .filter(r => !/<text>/.test(r))
+      .filter(r => !/Try to run: \$ /.test(r))
+      .join('\n')
+    ctx.body = { result: formatted }
   }
   await next()
 }
