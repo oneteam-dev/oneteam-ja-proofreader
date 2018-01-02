@@ -1,0 +1,18 @@
+version: 1
+rules:
+  - expected: Oneteam
+  - expected: iOS
+  - expected: Android
+  - expected: Chrome
+  - expected: Google Chrome
+  - expected: Firefox
+  - expected: Safari
+  - expected: Scala
+  - expected: Java
+  - expected: Kotlin
+  - expected: Swift
+  - expected: JavaScript
+  - expected: Slack
+  - expected: Google
+  - expected: Mac
+  - expected: Windows
