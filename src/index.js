@@ -1,6 +1,7 @@
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootswatch/dist/yeti/bootstrap.css'
 import 'react-spinner/react-spinner.css'
+import 'draft-js/dist/Draft.css'
 import 'styles/index.css'
 import React from 'react'
 import ReactDOM from 'react-dom'

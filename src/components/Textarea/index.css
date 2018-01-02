@@ -1,0 +1,31 @@
+.root {
+  transition: all .2s linear;
+  padding: 10px;
+}
+
+.root:global(.focus) {
+  border-color: #3bceff;
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 140, 186, 0.25);
+}
+
+.line {
+  position: relative;
+}
+
+.line::before {
+  content: attr(data-line-number);
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.5;
+  z-index: 1;
+}
+
+.line-text {
+  margin-left: 2em;
+}
+
+.root :global(.public-DraftEditorPlaceholder-root) {
+  margin-left: 2em;
+}

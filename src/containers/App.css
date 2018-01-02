@@ -1,15 +1,21 @@
 .container {
-  height: calc(100% - 32px - 32px); /* header, footer height */
+  height: calc(100% - 32px - 32px - 32px); /* header, footer, meta height */
 }
 
 .row {
   height: 100%;
 }
 
+.meta {
+  height: 32px;
+  color: #666;
+}
+
 .textarea {
-  height: 100%;
+  max-height: 100%;
+  min-height: 100%;
+  overflow:auto;
   border: 0;
-  resize: none;
 }
 
 .sec-center {
