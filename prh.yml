@@ -12,7 +12,11 @@ rules:
   - expected: Kotlin
   - expected: Swift
   - expected: JavaScript
+  - expected: Ruby
   - expected: Slack
   - expected: Google
   - expected: Mac
   - expected: Windows
+  - expected: Mac OS X
+  - expected: OS X
+  - expected: macOS
