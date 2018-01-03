@@ -6,7 +6,7 @@
     "ja-no-redundant-expression": true,
     "ja-unnatural-alphabet": true,
     "max-ten": {
-      "max": 4
+      "max": 5
     },
     "no-double-negative-ja": true,
     "no-doubled-conjunction": true,
@@ -21,12 +21,14 @@
       "strict": false
     },
     "no-mixed-zenkaku-and-hankaku-alphabet": true,
-    "web-plus-db": true,
+    "spellcheck-tech-word": true,
     "preset-ja-spacing": {
       "ja-space-between-half-and-full-width": {
         "space": "always",
-        "exceptPunctuation": false
-      }
+        "exceptPunctuation": true
+      },
+      "ja-space-after-exclamation": false,
+      "ja-space-after-question": false
     },
     "prh": {
       "rulePaths": ["prh.yml"]
@@ -34,6 +36,8 @@
     "no-dead-link": true,
     "date-weekday-mismatch": {
       "lang": "ja-JP"
-    }
+    },
+    "@textlint-rule/no-invalid-control-character": true,
+    "no-nfd": true
   }
 }

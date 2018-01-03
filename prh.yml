@@ -2,6 +2,8 @@ version: 1
 rules:
   - expected: Oneteam
   - expected: iOS
+  - expected: iPhone
+  - expected: iPad
   - expected: Android
   - expected: Chrome
   - expected: Google Chrome
