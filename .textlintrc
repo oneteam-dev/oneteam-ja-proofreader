@@ -31,6 +31,9 @@
     "prh": {
       "rulePaths": ["prh.yml"]
     },
-    "no-dead-link": true
+    "no-dead-link": true,
+    "date-weekday-mismatch": {
+      "lang": "ja-JP"
+    }
   }
 }
