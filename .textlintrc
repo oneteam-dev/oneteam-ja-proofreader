@@ -30,6 +30,7 @@
     },
     "prh": {
       "rulePaths": ["prh.yml"]
-    }
+    },
+    "no-dead-link": true
   }
 }
