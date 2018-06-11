@@ -4,7 +4,9 @@
       "targets": { "browsers": ["last 2 versions"] },
       "modules": false
     }],
-    "@babel/preset-stage-2",
+    ["@babel/preset-stage-2", {
+      "decoratorsLegacy": true
+    }],
     "@babel/preset-react"
   ],
   "env": {
