@@ -38,6 +38,9 @@
       "lang": "ja-JP"
     },
     "@textlint-rule/no-invalid-control-character": true,
-    "no-nfd": true
+    "no-nfd": true,
+    "preset-jtf-style": {
+      "3.1.1.全角文字と半角文字の間": false
+    }
   }
 }
